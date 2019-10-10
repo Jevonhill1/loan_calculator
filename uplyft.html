@@ -7,22 +7,83 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  <script src="moment.js"></script>
   <script src="uplyft.js"></script>
   <title>Loan Calculator</title>
 </head>
 
 <body>
-  <h1>Loan Calculator</h1>
   <div>
-    <form>
+    <header class="jumbotron-text-center">
+      <h1>Loan Calculator</h1>
+    </header>
+  </div>
+  <div class="container">
 
-    </form>
+    <form class="form">
+      <p>Loan Start Date:<br>
+        <input type="date" name="start" value="2019-10-05" min="2019-10-05" max="2025-10-05"> <br></p>
+      <p>Loan Amount: <br>
+        <input id="amount" type="number" name="amount" min="1" max="1000000"><br>
+        Simple Interest Rate:<br>
+        <input id="interest_rate" type="number" name="interest_rate" min="1" max="100" step=".1"><br>
+        Installment Interval:<br>
+        <input id="interval" type="number" name="interval" min="1" max="75"><br>
+        <br id="payment">
+        <input id="months" value="12" id="weeks" value="52" id="days" value="365" step="1">
+        <button id="button" type="button" class="btn btn-info" onclick="computeLoan()">Calculate </button>
+        <!-- <input id="calculate" type="number" name="calculator" min="1" max="1000000" onchange=computeLoan()> -->
+        <h2 id="totalPayment" type="number" onclick="computeLoan()">Payment:<br></h2>
+        Estimated Payoff Date:<br>
+        <input type=" date" name="payoff" min="10-05-2019" max="10-05-2025"><br>
+        <br>
+        <button type="button" class="btn btn-danger" name="reset">Reset</button>
+
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Payment Amount</th>
+              <th scope="col">Payment Date</th>
+              <th scope="col">?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Daily</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Weekly</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Monthly</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
   </div>
   <div>
 
   </div>
-  <script>
-  </script>
+  <div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+  </div>
 </body>
 
 </html>
@@ -32,12 +93,12 @@
 Write a loan repayment calculator in Javascript that takes several inputs and creates a payment schedule with an estimated payoff date.
 
 Inputs:
-- Start Date
-- Loan Amount
-- Installment Amount
-- Simple Interest Rate
-- Installment Interval (Daily, Weekly, Monthly)
-- Please note payments are not collected on weekends or public holidays.
+- Start Date  ✓
+- Loan Amount  ✓
+- Installment Amount  ✓
+- Simple Interest Rate  ✓
+- Installment Interval (Daily, Weekly, Monthly)  ✓
+- Please note payments are not collected on weekends or public holidays.  ✓
 
 Output:
 - HTML Table with scheduled payments
